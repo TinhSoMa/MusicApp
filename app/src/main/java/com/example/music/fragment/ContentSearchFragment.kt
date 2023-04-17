@@ -1,16 +1,18 @@
 package com.example.music.fragment
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.viewpager.widget.ViewPager
 import com.example.music.R
+import com.example.music.adapter.AdsAdapter
 import com.example.music.model.Ads
-import com.example.music.service.APIService
 import com.example.music.service.DataService
+import me.relex.circleindicator.CircleIndicator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +29,10 @@ private const val ARG_PARAM2 = "param2"
  */
 class ContentSearchFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var textView:TextView? = null
+//    private var view: View? = null
+
+    private lateinit var viewPager: ViewPager
+    private lateinit var circleIndicator: CircleIndicator
     private var param1: String? = null
     private var param2: String? = null
 
@@ -44,8 +49,18 @@ class ContentSearchFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_content_search, container, false)
+        viewPager = view.findViewById(R.id.viewPager)
+        circleIndicator = view.findViewById(R.id.indicator)
+//        Mapping(view)
+
         getData()
-        return inflater.inflate(R.layout.fragment_content_search, container, false)
+        return view
+    }
+
+    private fun Mapping(view: View) {
+//        val view: View? = null
+
     }
 
     private fun getData() {
@@ -56,7 +71,28 @@ class ContentSearchFragment : Fragment() {
             override fun onResponse(call: Call<List<Ads>>, response: Response<List<Ads>>) {
                 if (response.isSuccessful) {
                     val ads: List<Ads>? = response.body()
-                    Log.d("Ads Data", ads.toString())
+                    val adsAdapter: AdsAdapter = AdsAdapter(requireContext(), ads?: emptyList())
+                    viewPager.adapter = adsAdapter
+                    circleIndicator.setViewPager(viewPager)
+//                    Log.d("Ads Data", ads.toString())
+                    var currentItem: Int = 0
+                    val delayTime: Long = 5000 // 5 seconds
+                    val handler = Handler()
+                    val runnable = object : Runnable {
+                        override fun run() {
+                            currentItem = viewPager.currentItem
+                            currentItem++;
+                            if (currentItem >= (viewPager.adapter as AdsAdapter).count) {
+                                currentItem = 0
+                            }
+
+                            viewPager.setCurrentItem(currentItem, true)
+                            handler.postDelayed(this, delayTime)
+                        }
+                    }
+
+                    handler.postDelayed(runnable, delayTime)
+
 
                 } else {
                     Log.e("API Error", response.code().toString())

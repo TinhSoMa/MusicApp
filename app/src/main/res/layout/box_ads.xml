@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/img_bgr_ads"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/listtop" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/shadow_ads"/>
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_bgr_ads">
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/img_view_ads"
+            android:layout_toEndOf="@id/img_view_ads"
+            android:layout_marginTop="5dp"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:text="Người Yêu Giản Đơn"
+            tools:ignore="HardcodedText" />
+        <ImageView
+            android:id="@+id/img_view_ads"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="2dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+        <RelativeLayout
+            android:layout_below="@id/text_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@id/img_view_ads">
+            <TextView
+                android:id="@+id/text_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="40dp"
+                android:maxLines="2"
+                android:text="@string/top_1_ca_kh_c_th_ng_n_y"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

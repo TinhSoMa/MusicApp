@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ViewFlipper
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -24,7 +24,7 @@
                 android:id="@+id/textedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="19dp"
+                android:textSize="19sp"
                 android:textColor="@color/white"/>
             <me.relex.circleindicator.CircleIndicator
                 android:id="@+id/indicator"

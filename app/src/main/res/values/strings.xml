@@ -2,4 +2,6 @@
     <string name="app_name">MusicApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="listtop">ListTop</string>
+    <string name="top_1_ca_kh_c_th_ng_n_y">Top 1 ca khúc tháng này.</string>
 </resources>
