@@ -1,10 +1,10 @@
 package com.example.music.service
 
-class APIService {
-    companion object {
-        private const val BASE_URL = "http://mp3app.epizy.com/Server/"
-        fun getService(): DataService {
-            return APIRetrofitClient.getClient(BASE_URL).create(DataService::class.java)
-        }
-    }
+import com.example.music.model.Ads
+import retrofit2.Call
+import retrofit2.http.GET
+
+interface APIService {
+    @GET("Service/select_ads.php")
+    fun getDataAds(): Call<List<Ads>>
 }

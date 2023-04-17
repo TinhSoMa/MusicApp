@@ -1,10 +1,8 @@
 package com.example.music.service
 
-import com.example.music.model.Ads
-import retrofit2.Call
-import retrofit2.http.GET
-
-interface DataService {
-    @GET(/* value = */ "select_ads.php")
-    fun getDataAds(): Call<List<Ads>>
+object DataService {
+    private const val BASE_URL = "https://mp3-application.000webhostapp.com/"
+    fun getService(): APIService {
+        return APIRetrofitClient.getClient(BASE_URL).create(APIService::class.java)
+    }
 }

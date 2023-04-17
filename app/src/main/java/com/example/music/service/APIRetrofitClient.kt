@@ -8,10 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object APIRetrofitClient {
-    private const val BASE_URL = "http://mp3app.epizy.com/Server/"
     private val gson = GsonBuilder().setLenient().create()
-
-    fun getClient(baseUrl: String): Retrofit {
+    fun getClient(BASE_URL: String): Retrofit {
         val okHttpClient = OkHttpClient.Builder()
             .readTimeout(10000, TimeUnit.MILLISECONDS)
             .writeTimeout(10000, TimeUnit.MILLISECONDS)
