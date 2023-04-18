@@ -21,13 +21,15 @@ class AdsAdapter(private val context: Context, private val listAds: List<Ads>): 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.box_ads, container, false)
-
+        val imgBgr = view.findViewById<ImageView>(R.id.img_bgr_ads)
+        val imgView = view.findViewById<ImageView>(R.id.img_view_ads)
         val textTitle =  view.findViewById<TextView>(R.id.text_view_title)
         val textContent =  view.findViewById<TextView>(R.id.text_content)
         container.addView(view)
 
-        Picasso.with(context).load(listAds[position].s_image).into(view.findViewById<ImageView>(R.id.img_bgr_ads))
-        Picasso.with(context).load(listAds[position].ar_image).into(view.findViewById<ImageView>(R.id.img_view_ads))
+        Picasso.with(context).load("https://mp3-application.000webhostapp.com/Image/img_songs/s_nguoiyeugiandon.jpg").into(imgBgr)
+
+        Picasso.with(context).load(listAds[position].ar_image).into(imgView)
         textTitle.text = listAds[position].s_name
         textContent.text = listAds[position].ads_content
         return view
