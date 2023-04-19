@@ -7,12 +7,8 @@
         android:id="@+id/img_bgr_ads"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:scaleType="fitXY"
-        android:contentDescription="@string/listtop" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@drawable/shadow_ads"/>
+        android:scaleType="fitXY"/>
+
     <RelativeLayout
         android:id="@+id/relative"
         android:layout_width="match_parent"
@@ -26,7 +22,7 @@
             android:layout_toEndOf="@id/img_view_ads"
             android:layout_marginTop="5dp"
             android:textSize="17sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Người Yêu Giản Đơn"
             tools:ignore="HardcodedText" />
         <ImageView
@@ -47,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginEnd="40dp"
                 android:maxLines="2"
                 android:text="@string/top_1_ca_kh_c_th_ng_n_y"/>
