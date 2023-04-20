@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_topic_category"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".fragment.TopicCategoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Danh sách chủ đề thể loại"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/text_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xem thêm"
+        android:layout_alignParentRight="true"/>
+    <HorizontalScrollView
+        android:id="@+id/horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title">
+
+    </HorizontalScrollView>
+</RelativeLayout>

@@ -6,10 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.viewpager.widget.PagerAdapter;
 import com.example.music.R
-import com.example.music.fragment.ContentSearchFragment
 import com.example.music.model.Ads
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
