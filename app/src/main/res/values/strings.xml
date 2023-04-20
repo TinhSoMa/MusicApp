@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="listtop">ListTop</string>
     <string name="top_1_ca_kh_c_th_ng_n_y">Top 1 ca khúc tháng này.</string>
+    <string name="ten_danh_sach_play_list_song">Ten danh sach play list song</string>
 </resources>

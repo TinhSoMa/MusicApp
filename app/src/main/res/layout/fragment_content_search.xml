@@ -35,8 +35,7 @@
                 app:ci_margin="10dp"
                 app:ci_width="8dp"
                 app:ci_drawable="@drawable/circle_indicator"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/viewPager"/>
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>
     </ScrollView>
 
