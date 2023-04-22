@@ -1,6 +1,7 @@
 package com.example.music.fragment
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +11,9 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import com.example.music.R
+import com.example.music.adapter.AdsAdapter
 import com.example.music.adapter.PlayListAdapter
+import com.example.music.model.Ads
 import com.example.music.model.PlayList
 import com.example.music.service.DataService
 import retrofit2.Call
