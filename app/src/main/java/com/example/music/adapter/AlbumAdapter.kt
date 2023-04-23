@@ -15,9 +15,9 @@ import com.squareup.picasso.Picasso
 class AlbumAdapter(private val context: Context, private val listAlbum: List<Album>)
     : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>(){
     inner class AlbumViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val imgAlbum = itemView.findViewById<ImageView>(R.id.img_album)
-        val textAlbum = itemView.findViewById<TextView>(R.id.text_album)
-        val textArtists = itemView.findViewById<TextView>(R.id.text_artist)
+        val imgAlbum: ImageView = itemView.findViewById(R.id.img_album)
+        val textAlbum: TextView = itemView.findViewById(R.id.text_album)
+        val textArtists: TextView = itemView.findViewById(R.id.text_artist)
     }
 
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
