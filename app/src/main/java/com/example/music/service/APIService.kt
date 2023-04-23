@@ -1,9 +1,6 @@
 package com.example.music.service
 
-import com.example.music.model.Ads
-import com.example.music.model.Album
-import com.example.music.model.PlayList
-import com.example.music.model.TopicCategory
+import com.example.music.model.*
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -19,4 +16,7 @@ interface APIService {
 
     @GET("Service/select_album.php")
     fun getDataAlbum(): Call<List<Album>>
+
+    @GET("Service/select_songs.php")
+    fun getDataSongs(): Call<List<Songs>>
 }

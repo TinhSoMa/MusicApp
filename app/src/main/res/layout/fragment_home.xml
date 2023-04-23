@@ -40,6 +40,12 @@
                 android:layout_height="wrap_content"
                 android:name="com.example.music.fragment.AlbumFragment">
             </fragment>
+            <fragment
+                android:id="@+id/fragment_content_songs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="com.example.music.fragment.SongsLikesFragment">
+            </fragment>
         </LinearLayout>
     </ScrollView>
 
