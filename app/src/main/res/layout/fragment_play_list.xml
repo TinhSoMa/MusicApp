@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center"
     tools:context=".fragment.PlayListFragment">
 
@@ -17,15 +17,24 @@
             android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
             android:textAlignment="center"/>
-        <ListView
-            android:id="@+id/list_view_play_list"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"/>
+            android:layout_below="@id/title"
+            android:layout_marginTop="10dp"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
+<!--        <ListView-->
+<!--            android:clickable="true"-->
+<!--            android:id="@+id/list_view_play_list"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/title"/>-->
         <Button
             android:id="@+id/btn_see"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/list_view_play_list"
+            android:layout_below="@+id/recycler_view"
             android:text="Xem thêm"/>
 </RelativeLayout>

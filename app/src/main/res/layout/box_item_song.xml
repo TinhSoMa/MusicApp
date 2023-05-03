@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/brg_music"
+    android:padding="10dp">
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/text_index_song"
+        android:textSize="20sp"
+        android:text="1"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/ic_song"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/text_index_song"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/brg_music" />
+
+    <TextView
+        android:id="@+id/text_name_song"
+        android:ellipsize="end"
+        android:maxWidth="250dp"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:layout_toRightOf="@+id/ic_song"
+        android:text="Ten Bai hat"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/text_name_artists"
+            android:layout_below="@id/text_name_song"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/ic_song"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:text="Ten ca si"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:maxWidth="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

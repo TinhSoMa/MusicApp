@@ -1,5 +1,6 @@
 package com.example.music.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -7,10 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.music.R
+import com.example.music.activity.ListSongsActivity
 import com.example.music.adapter.AdsAdapter
 import com.example.music.adapter.PlayListAdapter
 import com.example.music.model.Ads
@@ -37,6 +42,7 @@ class PlayListFragment : Fragment() {
     private lateinit var textViewPlayList: Button
     private lateinit var playListAdapter: PlayListAdapter
     private lateinit var playList: List<PlayList>
+    private lateinit var recyclerView: RecyclerView
     private var param1: String? = null
     private var param2: String? = null
 
@@ -54,25 +60,13 @@ class PlayListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_play_list, container, false)
-        listViewPlayList = view.findViewById(R.id.list_view_play_list)
+//        listViewPlayList = view.findViewById(R.id.list_view_play_list)
         textTitlePlayList = view.findViewById(R.id.title)
         textViewPlayList = view.findViewById(R.id.btn_see)
+        recyclerView = view.findViewById(R.id.recycler_view)
+
         getData()
         return view
-    }
-    fun setListViewHeightBasedOnChildren(listView: ListView) {
-        val listAdapter = listView.adapter ?: return
-        var totalHeight = 0
-        val desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.width, View.MeasureSpec.AT_MOST)
-        for (i in 0 until listAdapter.count) {
-            val listItem = listAdapter.getView(i, null, listView)
-            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
-            totalHeight += listItem.measuredHeight
-        }
-        val params = listView.layoutParams
-        params.height = totalHeight + (listView.dividerHeight * (listAdapter.count - 1))
-        listView.layoutParams = params
-        listView.requestLayout()
     }
 
     private fun getData() {
@@ -83,13 +77,13 @@ class PlayListFragment : Fragment() {
         call.enqueue(object : Callback<List<PlayList>> {
             override fun onResponse(call: Call<List<PlayList>>, response: Response<List<PlayList>>) {
                 if (response.isSuccessful) {
-                    playList = response.body() ?: emptyList()
+                    playList = response.body()!!
+                    playListAdapter = PlayListAdapter(requireContext(), playList)
+                    val linearLayoutManager = LinearLayoutManager(activity)
+                    linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+                    recyclerView.layoutManager = linearLayoutManager
+                    recyclerView.adapter = playListAdapter
 
-                    playListAdapter = PlayListAdapter(requireContext(), android.R.layout.simple_list_item_1, playList)
-                    listViewPlayList.adapter = playListAdapter
-                    setListViewHeightBasedOnChildren(listViewPlayList)
-
-                    Log.d("ListData", playList.toString())
                 } else {
                     Log.e("API Error", response.code().toString())
                 }

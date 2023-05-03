@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         val tabLayout: TabLayout = findViewById(R.id.tabLayout)
 //        val fragments = listOf(HomeFragment(), SearchFragment())
         val adapter = PagerAdapter(supportFragmentManager)
-        adapter.addFragment("Trang chủ", HomeFragment())
+        adapter.addFragment("", HomeFragment())
         adapter.addFragment("Tìm Kiếm", SearchFragment())
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)

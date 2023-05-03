@@ -74,7 +74,6 @@ class ContentSearchFragment : Fragment() {
                     val adsAdapter: AdsAdapter = AdsAdapter(requireContext(), ads?: emptyList())
                     viewPager.adapter = adsAdapter
                     circleIndicator.setViewPager(viewPager)
-                    Log.d("Ads Data", ads.toString())
                     var currentItem: Int = 0
                     val delayTime: Long = 5000 // 5 seconds
                     val handler = Handler()

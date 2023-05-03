@@ -31,6 +31,6 @@ class SongLikeAdapter(private val context: Context, private val listSongs: List<
         val songs = listSongs[position]
         holder.textNameSongs.text = songs.s_name
         holder.textNameArtists.text = songs.ar_name
-        Picasso.get().load(songs.s_image).into(holder.imgSongs)
+        Picasso.get().load(songs.ar_image).into(holder.imgSongs)
     }
 }
