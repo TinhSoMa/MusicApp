@@ -30,7 +30,10 @@ interface APIService {
     @FormUrlEncoded
     @POST("Service/okoko.php")
     fun getDataSearchSong(@Field("name") name: String): Call<List<Songs>>
-    @FormUrlEncoded
     @GET("Service/search_song.php")
-    fun getDataTest(): Call<List<Songs>>
+    fun getDataSong(): Call<List<Songs>>
+
+    @FormUrlEncoded
+    @POST("Service/check_login.php")
+    fun getCheckLogin(@Field("user") user: String): Call<List<Accout>>
 }

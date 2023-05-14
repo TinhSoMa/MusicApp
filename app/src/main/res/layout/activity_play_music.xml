@@ -67,7 +67,7 @@
             android:layout_height="wrap_content">
             <ImageButton
                 android:id="@+id/btn_shuffle"
-                android:src="@drawable/ic_shuffle"
+                android:src="@drawable/ic_shuffle_30"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:layout_marginRight="15dp"
@@ -75,7 +75,7 @@
                 android:layout_height="60dp"/>
             <ImageButton
                 android:id="@+id/btn_sort_left"
-                android:src="@drawable/ic_sort_left"
+                android:src="@drawable/ic_sort_left_30"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:layout_marginRight="15dp"
@@ -83,7 +83,7 @@
                 android:layout_height="60dp"/>
             <ImageButton
                 android:id="@+id/btn_play"
-                android:src="@drawable/ic_play"
+                android:src="@drawable/ic_play_30"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:layout_marginRight="15dp"
@@ -91,7 +91,7 @@
                 android:layout_height="70dp"/>
             <ImageButton
                 android:id="@+id/btn_sort_right"
-                android:src="@drawable/ic_sort_right"
+                android:src="@drawable/ic_sort_right_30"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:layout_marginRight="15dp"
@@ -99,7 +99,7 @@
                 android:layout_height="60dp"/>
             <ImageButton
                 android:id="@+id/btn_repeat"
-                android:src="@drawable/ic_repeat"
+                android:src="@drawable/ic_repeat_30"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:layout_marginRight="15dp"

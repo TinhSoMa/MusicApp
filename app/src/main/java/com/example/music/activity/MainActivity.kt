@@ -12,11 +12,19 @@ import com.google.android.material.tabs.TabLayout
 import android.view.View.VISIBLE
 import android.view.View.GONE
 import android.widget.ProgressBar
+import android.widget.TextView
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var gso: GoogleSignInOptions
+    private lateinit var gsc: GoogleSignInClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         progressBar.visibility = View.VISIBLE
         create()
@@ -30,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         val tabLayout: TabLayout = findViewById(R.id.tabLayout)
 //        val fragments = listOf(HomeFragment(), SearchFragment())
         val adapter = PagerAdapter(supportFragmentManager)
-        adapter.addFragment("", HomeFragment())
+        adapter.addFragment("Trang Chủ", HomeFragment())
         adapter.addFragment("Tìm Kiếm", SearchFragment())
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)

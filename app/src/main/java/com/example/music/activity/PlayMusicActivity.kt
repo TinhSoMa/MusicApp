@@ -95,7 +95,7 @@ class PlayMusicActivity : AppCompatActivity() {
         btnImgPlay.setOnClickListener {
             if (mediaPlayer.isPlaying) {
                 mediaPlayer.pause()
-                btnImgPlay.setImageResource(R.drawable.ic_play)
+                btnImgPlay.setImageResource(R.drawable.ic_play_30)
             } else {
                 mediaPlayer.start()
                 btnImgPlay.setImageResource(R.drawable.ic_pause)
@@ -103,32 +103,39 @@ class PlayMusicActivity : AppCompatActivity() {
         }
 
         btnImgRepeat.setOnClickListener {
+
             repeat = if (!repeat) {
+                //Nếu không lặp lại
                 if (checkRandom) {
                     checkRandom = false
                     btnImgRepeat.setImageResource(R.drawable.ic_close)
+                    btbRandom.setImageResource(R.drawable.ic_shuffle_30)
                 }
+                btnImgRepeat.setImageResource(R.drawable.ic_close)
                 true
             } else {
                 //nếu nút lặp lại hiện đang bật
-                btnImgRepeat.setImageResource(R.drawable.ic_repeat)
+                btnImgRepeat.setImageResource(R.drawable.ic_repeat_30)
                 false
             }
         }
 
         btbRandom.setOnClickListener {
             checkRandom = if (!checkRandom) {
+                //Nếu không được bật chức năng random nhưng đang bật lặp lại
                 if (repeat) {
                     repeat = false
+                    btnImgRepeat.setImageResource(R.drawable.ic_repeat_30)
                     btbRandom.setImageResource(R.drawable.ic_close)
                 }
+                btbRandom.setImageResource(R.drawable.ic_close)
                 true
             } else {
-                btbRandom.setImageResource(R.drawable.ic_shuffle)
+                //nếu nút đang được bật
+                btbRandom.setImageResource(R.drawable.ic_shuffle_30)
                 false
             }
         }
-
 
         seeBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -193,7 +200,7 @@ class PlayMusicActivity : AppCompatActivity() {
             handler.postDelayed({
                 btnImgNext.isClickable = true
                 btnImgBack.isClickable = true
-            },5000)
+            },2000)
         }
 
 
@@ -237,7 +244,7 @@ class PlayMusicActivity : AppCompatActivity() {
             handler.postDelayed({
                 btnImgNext.isClickable = true
                 btnImgBack.isClickable = true
-            },5000)
+            },2000)
         }
     }
 
@@ -347,16 +354,23 @@ class PlayMusicActivity : AppCompatActivity() {
         handlerUpdate.postDelayed(object : Runnable{
             override fun run() {
                 //Kiểm tra có đang phát bản nhạc không
-                if (mediaPlayer.isPlaying) {
-                    seeBar.progress = mediaPlayer.currentPosition
-                    val simpleDateFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
-                    textTimeSong.text = simpleDateFormat.format(mediaPlayer.currentPosition)
-                    handlerUpdate.postDelayed(this, 300)
-                    mediaPlayer.setOnCompletionListener {
-                        nextPlay = true
-                        Thread.sleep(1000)
+                try {
+                    if (mediaPlayer.isPlaying) {
+                        seeBar.progress = mediaPlayer.currentPosition
+                        val simpleDateFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
+                        textTimeSong.text = simpleDateFormat.format(mediaPlayer.currentPosition)
+                        handlerUpdate.postDelayed(this, 300)
+                        mediaPlayer.setOnCompletionListener {
+                            nextPlay = true
+                            Thread.sleep(1000)
+                        }
                     }
+                } catch (e: Exception) {
+                    // Xử lý ngoại lệ
+                    Log.d("Ngoại lệ", e.message.toString())
                 }
+
+
             }
 
         }, 300)
